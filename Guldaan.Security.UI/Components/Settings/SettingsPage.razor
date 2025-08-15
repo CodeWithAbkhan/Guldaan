@@ -1,0 +1,13 @@
+﻿@inherits Basepage
+@using Guldaan.Common.RazorUI.Components
+@using Guldaan.Security.UI.Client.Components.Authorizations
+@using Guldaan.Security.UI.Client.Components.Settings
+
+@page "/settings"
+
+<PageTitle>Manage your settings</PageTitle>
+
+<UbikContentContainer>
+    <UbikFluentBreadcrumb Items="BreadcrumbItems" WithClose="false" />
+    <Settings @rendermode="InteractiveAuto"></Settings>
+</UbikContentContainer>

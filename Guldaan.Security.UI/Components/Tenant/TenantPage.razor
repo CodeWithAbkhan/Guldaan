@@ -1,0 +1,30 @@
+﻿@inherits Basepage
+
+@page "/tenant"
+
+@using Guldaan.Common.RazorUI.Authorize;
+@using Guldaan.Common.RazorUI.Errors;
+@using Guldaan.Common.RazorUI.Components
+@using Guldaan.Security.UI.Client.Components.Tenant
+
+<PageTitle>Manage my tenant</PageTitle>
+
+<UbikContentContainer>
+    <UbikFluentBreadcrumb Items="BreadcrumbItems" WithClose="false" />
+
+    @if (_isTenantManager || _isSubscriptionOwner)
+    {
+        <FluentStack Orientation="Orientation.Vertical" Class="tw-mb-2 tw-mt-3">
+            <div>
+                <h2 class="tw-text-2xl tw-font-bold">Selected tenant</h2>
+                <p class="tw-mb-2">You are the manager of this tenant.</p>
+                <p class="tw-italic">Find the configuration below.</p>
+            </div>
+        </FluentStack>
+        <Tenant @rendermode="InteractiveAuto"></Tenant>
+    }
+    else
+    {
+        <NoRight Message="You are not the manager of the selected tenant." />
+    }
+</UbikContentContainer>

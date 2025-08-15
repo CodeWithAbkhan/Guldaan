@@ -1,0 +1,38 @@
+﻿@inherits Basepage
+
+@page "/subscription/tenants/{Id:guid}"
+
+@using Guldaan.Common.RazorUI.Authorize;
+@using Guldaan.Common.RazorUI.Errors;
+@using Guldaan.Common.RazorUI.Components
+@using Guldaan.Security.UI.Client.Components.Authorizations
+@using Guldaan.Security.UI.Client.Components.Subscription
+
+<PageTitle>Update tenant in subscription</PageTitle>
+
+<UbikContentContainer>
+    <UbikFluentBreadcrumb Items="BreadcrumbItems" WithClose="true" CloseUrl="subscription" />
+
+    @if (_isSubscriptionOwner)
+    {
+        <FluentStack Orientation="Orientation.Vertical" Class="tw-mb-4 tw-mt-3">
+            <div>
+                <h2 class="tw-text-2xl tw-font-bold">Edit tenant</h2>
+                <p>Edit tenant in the selected subscription.</p>
+                <p class="tw-mb-2 tw-font-semibold">Don't forget to link users to the tenants (if you want).</p>
+                <p class="tw-italic">Selected subscription:</p>
+                <p class="tw-italic">@_selectedSubscriptionId</p>
+            </div>
+        </FluentStack>
+
+        <SubscriptionTenantsUpdate @rendermode="InteractiveAuto"
+                                   SelectedSubscriptionId="_selectedSubscriptionId"
+                                   Id="Id">
+        </SubscriptionTenantsUpdate>
+    }
+    else
+    {
+        <NoRight Message="You are not the owner of the selected subscription." />
+    }
+</UbikContentContainer>
+

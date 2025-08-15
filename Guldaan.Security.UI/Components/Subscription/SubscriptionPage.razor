@@ -1,0 +1,31 @@
+﻿@inherits Basepage
+
+@page "/subscription"
+
+@using Guldaan.Common.RazorUI.Authorize;
+@using Guldaan.Common.RazorUI.Errors;
+@using Guldaan.Common.RazorUI.Components
+@using Guldaan.Security.UI.Client.Components.Authorizations
+@using Guldaan.Security.UI.Client.Components.Subscription
+
+<PageTitle>Manage subscription</PageTitle>
+
+<UbikContentContainer>
+    <UbikFluentBreadcrumb Items="BreadcrumbItems" WithClose="false" />
+
+    @if (_isSubscriptionOwner)
+    {
+        <FluentStack Orientation="Orientation.Vertical" Class="tw-mb-2 tw-mt-3">
+            <div>
+                <h2 class="tw-text-2xl tw-font-bold">Selected subscription</h2>
+                <p class="tw-mb-2">You are the owner of this subscription.</p>
+                <p class="tw-italic">Find the configuration and the details below.</p>
+            </div>
+        </FluentStack>
+        <Subscription @rendermode="InteractiveAuto"></Subscription>
+    }
+    else
+    {
+        <NoRight Message="You are not the owner of the selected subscription"/>
+    }
+</UbikContentContainer>

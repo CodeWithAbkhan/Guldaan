@@ -1,0 +1,6 @@
+@Guldaan.Commander_HostAddress = http://localhost:5122
+
+GET {{Guldaan.Commander_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

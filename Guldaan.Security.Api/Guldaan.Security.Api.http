@@ -1,0 +1,7 @@
+@Guldaan.Security.Api_HostAddress = https://localhost:7207
+
+
+
+GET {{Guldaan.Security.Api_HostAddress}}/api/v1/admin/tenants
+
+###
