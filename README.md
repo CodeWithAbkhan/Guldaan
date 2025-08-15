@@ -1,6 +1,6 @@
 # GUldaan (alpha)
 
-![Guldaan](./best-schema.png)
+<!-- ![Guldaan](./best-schema.png) -->
 
 - A security API to protect your backend.
 - Yarp proxy as an entry point.
